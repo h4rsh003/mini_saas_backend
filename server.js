@@ -10,8 +10,8 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 app.use('/api', authRoutes);
 app.use('/api', contentRoutes);
 app.use('/api', userRoutes); // New line
