@@ -28,7 +28,7 @@ const signupUser = async (req, res) => {
         });
 
         if (user) {
-            // Corrected to return user data and token
+
             res.status(201).json({ 
                 message: 'User registered successfully',
                 _id: user._id,

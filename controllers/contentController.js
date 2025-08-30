@@ -8,7 +8,7 @@ const filterContent = async (req, res) => {
             content = await Content.find({});
         }
         else {
-            content = await Content.find({typr:'free'});
+            content = await Content.find({ type: 'free' });
         }
         res.json(content);
     } catch (error) {

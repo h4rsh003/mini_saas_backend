@@ -1,8 +1,7 @@
 const User = require('../models/User');
-
 const getUserProfile = async (req, res) => {
 
-  const user = await User.findById(req.user._id);
+const user = await User.findById(req.user._id);
 
   if (user) {
     res.json({
@@ -23,7 +22,10 @@ const mockCheckout = async (req, res) => {
     if (user.role === 'premium') {
       return res.status(400).json({ message: 'User is already a premium member' });
     }
-    await user.save();
+    else{
+      await user.updateOne({role:'premium'})
+      await user.save();
+    }
 
     res.json({
       message: 'Subscription upgraded successfully!',
